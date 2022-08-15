@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/loglinks.css">
+
+   <%-
+    include("components/componentot/navComm")
+    %>
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <div class="sticky">
+        <%- include("components/nav",{page:page,loginName:loginName}) %>
+    </div>
+    <p class="<%=view=='L'?'whitee':'black'%>">Welcome to daniel gal store</p>
+    <h1 class="<%=view=='L'?'whitee':'black'%>">about</h1>
+
+<div class="flexMiidle">
+  <div class="card <%=view=='L'?'fff':'zzz'%>">
+    <h5 class="card-header">about us</h5>
+    <div class="card-body">
+      <h5 class="card-title">sell and bay online</h5>
+      <pre class="card-text peregraph">
+        whith danielgal store you can choose who you are
+         and become a seller or customer </pre>
+      <a href="/store" class="btn btn-primary">Go shop now!</a>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

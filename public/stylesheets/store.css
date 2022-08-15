@@ -1,0 +1,108 @@
+.contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionStore {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.itemCard {
+  background-color: crimson;
+  margin: 1.3em;
+  position: relative;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.img {
+  height: 35vh;
+}
+.pic {
+  height: 90%;
+  width: 100%;
+  background-size: cover;
+  object-fit: cover;
+}
+.central {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.skipLimit {
+  background-color: royalblue;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.pagebutton {
+  padding: 1em;
+}
+.nopictiore {
+  background-color: #262626;
+  height: 90%;
+}
+
+.headerTow {
+  margin: 0;
+  padding-left: 0.5em;
+}
+.price {
+  text-align: center;
+}
+.commendSection {
+  height: 20vh;
+  overflow: scroll;
+  background-color: #cdcdcd;
+}
+.commend {
+  margin: 0.5em;
+  background-color: #cdcdcd;
+}
+.comm {
+  background-color: #f3f3f3;
+  padding: 0.2em 0.3em;
+  margin: 0.3em 0;
+  color: #161616;
+}
+.flexrowTow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.statistic {
+  padding: 1em;
+  background-color: crimson;
+  margin: 1.3em;
+}
+.statistic2 {
+  padding: 1em;
+  background-color: white;
+  margin: 1.3em;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.flexrowbetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.red {
+  color: red;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <%-
+    include("components/componentot/navComm")
+    %>
+    <!-- <link rel="stylesheet" href="/stylesheets/Allsite.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/profile.css" />
+  <script src="/javascripts/windowWidt.js"></script>
+
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <div class="sticky">
+    <%- include("components/nav",{page:page,loginName:loginName}) %>
+  </div>
+    <div class="<%=view=='L'?'lite':'reka'%>">
+
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">  <a href="/updateUserInfo" class="btn btn-info">updateStore Info  </a></li>
+          <li class="list-group-item"> <a href="/bay" class="btn btn-info">item you bay</a></li>
+        
+        </ul>
+      </div>
+     
+     
+
+    <%if(storePass){%>
+      
+      <%- include("components/setNewItem") %>
+      
+      <%}%> 
+      
+      <%if(items){%>
+      <div class="divOfItems">
+        <div class="sectionhaf">
+          <%-
+          include("components/storeItems",{data:items,storePass:storePass,loginName:loginName ,View:view})
+          %>
+        </div>
+      </div>
+
+  
+      <%}else{%>
+      <h1>not found items</h1>
+      <%}%>
+    </div>
+  </body>
+</html>

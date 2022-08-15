@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/store.css">
+    <!-- <link rel="stylesheet" href="stylesheets/style.css"> -->
+
+    
+
+    <%-
+    include("components/componentot/navComm")
+    %>
+    
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <div class="sticky">
+    <%- include("components/nav",{page:page,loginName:loginName}) %>
+  </div>
+    <h1 class="<%=view=='L'?'abc':'colorWhite'%>">store</h1>
+
+    <div class="topicSearch">
+
+      <h2 class="">search bay Topic</h2>
+      <a href="/store?serchQuary=kids">kids</a>
+      <a href="/store?serchQuary=sport">sport</a>
+      <a href="/store?serchQuary=games">games</a>
+      <a href="/store?serchQuary=kitchen">kitchen</a>
+      <a href="/store?serchQuary=gaget">gaget</a>
+      <a href="/store?serchQuary=toilet">toilet</a>
+    </div>
+ 
+      <div class="container">
+        <div class="row">
+
+       
+      
+                 <%-
+        include("components/StoreShop",{data:data,loginName:loginName,clientNumber:clientNumber,storecase:storecase,View:view})
+        %>
+         
+       </div>
+      </div>
+     
+      
+
+    <div class="central">
+
+  
+     <%for(let i = 1 ; i  < allData.length /5 ; i++){%>
+       <form class="skipLimit" action="/store">
+      <input type="hidden"  value="<%=i%>" name="page">
+      <button class=" pagebutton"><%=i%></button>
+     </form>
+        <%}%>
+    
+  </div>
+  </body>
+</html>

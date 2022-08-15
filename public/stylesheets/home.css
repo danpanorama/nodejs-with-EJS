@@ -1,0 +1,120 @@
+.heading {
+  height: 50vh;
+  background-color: #262626;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.video {
+  width: 100%;
+}
+.heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+.pHeader {
+  color: rgb(20, 17, 17);
+  display: inline;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 50px;
+}
+
+.blockHeader {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  height: 0%;
+  width: 70%;
+  opacity: 0;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  );
+  animation: startAnimation 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.linkHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 30%;
+  width: 50%;
+}
+.section02 {
+  width: 100%;
+  height: 30vh;
+  background-color: salmon;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.buttonHeader {
+  border: none;
+  border-radius: 3px;
+  padding: 10px 25px;
+  transition: 0.4s ease;
+}
+
+.buttonHeader:hover {
+  background-color: wheat;
+  box-shadow: 5px 12px 15px black;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+@keyframes startAnimation {
+  0% {
+    top: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 50%;
+    height: 30%;
+  }
+}
+
+@keyframes startAnimation2 {
+  0% {
+    top: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 50%;
+    height: 70%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    font-size: 5px;
+  }
+
+  .linkHeader {
+    flex-direction: column;
+  }
+
+  .blockHeader {
+    height: auto;
+    width: auto;
+    animation: startAnimation2 0.3s;
+    animation-fill-mode: forwards;
+  }
+}

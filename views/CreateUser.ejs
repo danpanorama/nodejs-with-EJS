@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/javascripts/loginUserValidation.js"></script>
+
+    <%-
+    include("components/componentot/navComm")
+    %>
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <%- include("components/nav", {loginName:loginName,massage:massage}) %> 
+    
+     
+          <%- include("components/creatLoginComp", {err:err}) %>
+       
+
+   
+ 
+  </body>
+</html>

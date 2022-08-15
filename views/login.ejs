@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/navbar.css" />
+    <link rel="stylesheet" href="/stylesheets/loglinks.css" />
+    <link rel="stylesheet" href="/stylesheets/media.css" />
+    <script src="/javascripts/auth.js"></script>
+
+    <%-
+    include("components/componentot/navComm")
+    %>
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <%- include("components/nav", {loginName:loginName,massage:massage}) %>
+    <div class="flexCenter">
+      <div class="logli w100" id="logli">
+        <div class="compLOG">
+          <%- include("components/loginComp", {err:err}) %>
+        </div>
+      </div>
+    
+    </div>
+  </body>
+</html>

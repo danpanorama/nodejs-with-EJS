@@ -1,0 +1,131 @@
+<%if(data.length>0){%><% let isLike = false%> <%for(let item of data ){%>
+<%for(let i = 0; i < item.userLikes.length; i++){%>
+   <%if( clientNumber==item.userLikes[i].number ){%> 
+    <% isLike
+= true%> <%}else{%> <% isLike = false%> <%}%> <%}%>
+
+<div class="flexrowbetween">
+  <div class="itemCard  ">
+    <div class="card">
+      <div class="img">
+        <%if(item.file.data){%>
+        <img
+         
+          class="img-fluid" alt="Responsive image"
+          src="data:image/<%=item.file.contentType%>;base64, 
+        <%=item.file.data.toString('base64')%>"
+         
+        />
+        <%}else{%>
+        <h3>no pictur</h3>
+        <%}%>
+      </div>
+      <div class="infocard">
+      <div class="productName">
+        <p class="paregraph"><b>prucoct name:</b><%=item.itemName%></p>
+      </div>
+      <div class="discription">
+        <p class="paregraph">
+          <b>product discription:</b> <%=item.itemDiscription%>
+        </p>
+      </div>
+      <div class="productTopic">
+        <p class="paregraph"><b>product topic:</b> <%=item.itemTopic%></p>
+      </div>
+      <div class="storeName">
+        <p><b>store name:</b> <%=item.StoreName%></p>
+      </div>
+      <div class="price">
+    
+        <h2><b>price: $</b><%=item.itemPrice * summ%></h2>
+        
+      </div>
+      <div >
+        <p>Price for one :<b> $</b><%=item.itemPrice%></p>
+      </div>
+      
+    
+
+      <%if(clientNumber == item.StoreNumber){%>
+        <h1>your item</h1>
+
+        <%}else{%>
+
+      <div class="buttunsdiv">
+        <form method="POST" action="/bay/baynow/<%=item._id%>">
+          <input type="hidden" name="sum" value="<%=summ%>">
+          <button class="btn btn-primary">baynow</button>
+        </form>
+      </div>
+      <%}%>
+    </div>
+    </div>
+  
+  </div>    
+ 
+  <div class="flexrow statistic2 max">
+ <canvas id="myChart"></canvas>
+
+    <div style="opacity: 0;">
+    <div id="soldad"> <%=item.sold%></div>
+    <div id="unsold"> <%=item.unsold%></div>
+    <div id="like"> <%=item.userLikes.length%></div>
+    <div id="commens"> <%=item.userUnlike.length%></div>
+    
+
+    </div>
+  </div>
+</div>
+
+  <div class="statistic reesit">
+    
+
+
+
+    <%if(isLike){%>
+    <form
+      method="POST"
+      action="/likes/unLike/<%=item._id%>"
+      class="buttonDisLike"
+    >
+    <input type="hidden" name="sum" value="<%=summ%>">
+
+      <button class="btn btn-danger">disLike <%=item.userLikes.length%></button>
+    </form>
+    <%}else{%>
+    <form action="/likes/<%=item._id%>" method="POST">
+      <input type="hidden" name="sum" value="<%=summ%>">
+
+      <button class="btn btn-success">like <%=item.userLikes.length%></button><p></p>
+    </form>
+    <%}%>
+
+    <form action="/likes/badcommend/<%=item._id%>" method="POST">
+      <!-- <select name="commend" id="">
+        <option value="broken">broken</option>
+        <option value="expensiv">expensiv</option>
+      </select> -->
+      <div>
+        <input type="text" name="commend" required />
+        <input type="hidden" name="sum" value="<%=summ%>">
+
+
+        <button  class="btn btn-success">send</button>
+      </div>
+    </form>
+    <div class="commendSection">
+      <div class="commend">
+        <%for(let i = 0 ; i< item.userUnlike.length; i++){%>
+
+        <p class="comm">
+          <%=item.userUnlike[i].name%> : <%=item.userUnlike[i].text%>
+        </p>
+
+        <%}%>
+      </div>
+    </div>
+  </div>
+  <%}%> <%}else{%>
+  <h1>not found</h1>
+  <%}%>
+</div>

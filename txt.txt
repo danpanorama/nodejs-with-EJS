@@ -1,0 +1,29 @@
+Choose your own project that must utilize these requirements
+1)	Auth 
+a.	Login
+b.	Logout
+c.	Signup
+d.	Token
+i.	If remember me every 30d
+ii.	If did not remember me then every 1 hour
+2)	Always check user input (in client and in server)
+3)	Admin with permissions
+4)	Dark light theme
+5)	Use 2 database (mongo and MySQL)
+a.	Mongo – mongoose
+b.	The databases must use
+i.	New records
+ii.	Delete records
+iii.	Update records
+6)	Use local storage
+7)	Pagination
+8)	Responsive
+9)	Password must change every 180 days
+10)	Search with auto complete
+11)	Graph and reports
+12)	Error handling
+13)	Use statuses
+14)	Use one of the engines
+15)	User environment file
+16)	At list 4 pages
+17)	The project must be MVC

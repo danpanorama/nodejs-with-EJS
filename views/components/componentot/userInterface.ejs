@@ -1,0 +1,161 @@
+<div class="infoProfile">
+  <a href="/profile" class="btn btn-info">profile</a>
+  <%if(userStoreData){%>
+  <h2 class="colwhite">store enterface</h2>
+  <h1 class="userHeaderInfo"><%=loginName%></h1>
+  <h1 class="userHeaderInfo"><%=userStoreData.store_idcart%></h1>
+  <h1 class="userHeaderInfo"><%=userStoreData.store_email%></h1>
+  <h1 class="userHeaderInfo"><%=userStoreData.store_view%></h1>
+
+  <h1 class="userHeaderInfo"><%=userStoreData.idcart%></h1>
+
+  <h1 class="">update the store</h1>
+
+  <div class="">
+    <div class="widAuto">
+
+
+      <h2>Change User info</h2>
+
+
+      <form class="needs-validation" action="/updateUserInfo/updateStore"
+      method="POST" novalidate>
+      <input
+      readonly
+      name="store_number"
+      type="hidden"
+      value="<%=userNumber%>"
+     />
+     
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip01"> name</label>
+            <input   name="store_name"
+            type="text"
+            value="<%=userStoreData.store_name%>" class="form-control" id="validationTooltip01"  required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Password</label>
+            <input type="password" name="password" class="form-control" id="validationTooltip02" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip03">E-mail</label>
+            <input type="email"   value="<%=userStoreData.store_email%>"
+            name="store_email" class="form-control" id="validationTooltip03" required>
+            <div class="invalid-tooltip">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip04">View</label>
+            <select class="custom-select" name="store_view" id="validationTooltip04" required>
+              <option selected  value="D">Choose...</option>
+              <option value="D">D</option>
+              <option value="L">L</option>
+            </select>
+            <div class="invalid-tooltip">
+              Please select a valid state.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip05">ID</label>
+            <input name="store_idcart"
+            type="text"
+            value="<%=userStoreData.store_idcart%>"  class="form-control" id="validationTooltip05" required>
+            <div class="invalid-tooltip">
+              Please provide a valid zip.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+
+
+
+
+     
+    </div>
+  </div>
+  <%}%> <%if(userAllData){%>
+
+  <h2 class="userHeaderInfo">user enterface</h2>
+  <h1 class="userHeaderInfo"><%=userAllData.client_email%></h1>
+
+  <h1 class="userHeaderInfo"><%=loginName%></h1>
+  <h1 class="userHeaderInfo"><%=userAllData.client_phon%></h1>
+
+  <h1 class="openupdatewindow">update the user</h1>
+  <div class="">
+    <div class="widAuto">
+     <h2>Change User info</h2>
+      <form class="needs-validation"    action="/updateUserInfo/updateUser"
+    
+      method="POST" novalidate>
+      <input readonly name="userID" type="hidden" value="<%=userNumber%>" />
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip01">First name</label>
+            <input type="text" name="client_fullName" value="<%=userAllData.client_fullName%>" class="form-control" id="validationTooltip01" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Password </label>
+            <input type="text" name="password" class="form-control" id="validationTooltip02" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip03">E-mail</label>
+            <input type="email" value="<%=userAllData.client_email%>"
+            name="client_email" class="form-control" id="validationTooltip03" required>
+            <div class="invalid-tooltip">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip04">View</label>
+            <select class="custom-select" name="client_view" id="validationTooltip04" required>
+              <option selected  value="D">Choose...</option>
+              <option value="L">L</option>
+          <option value="D">D</option>
+            </select>
+            <div class="invalid-tooltip">
+              Please select a valid state.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip05">Phon</label>
+            <input type="number" class="form-control"  value="<%=userAllData.client_phon%>"
+            name="client_phon" id="validationTooltip05" required>
+            <div class="invalid-tooltip">
+              Please provide a valid zip.
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
+
+<%=err%>
+
+
+
+
+
+     
+    </div>
+  </div>
+  <%}%>
+</div>

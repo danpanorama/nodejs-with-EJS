@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>  
+      <link rel="stylesheet" href="/stylesheets/media.css" />
+
+    <link rel="stylesheet" href="/stylesheets/store.css" />
+
+    <%-
+    include("components/componentot/navComm")
+    %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="/javascripts/chart.js"></script>
+
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <div class="sticky">
+    <%- include("components/nav",{page:page,loginName:loginName}) %></div>
+    <%if(clientNumber == data[0].StoreNumber){%>
+    <h1>your item</h1>
+    <%}else{%>
+    <h1>the item you whant to bay</h1>
+
+    <%}%>
+    <p class="seccsesMassage"><%=mssg%></p>
+    
+    
+    <%-
+    include("components/storeResite",{data:data,loginName:loginName,clientNumber:clientNumber,summ:summ,mssg:mssg})
+    %>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+.itemyoubay {
+  width: 90%;
+  margin: auto;
+}
+.imgshel {
+  object-fit: contain;
+}
+
+.gridisng {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+.bgcolorw {
+  background-color: rgb(255, 255, 255);
+}

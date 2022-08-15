@@ -1,0 +1,6 @@
+<%if(data.length>0){%><%let x = 0%> <%for(let item of data ){%> <% x+=
+item.itemPrice *item.sum%> <%}%>
+<div class="">
+  <h1>total: $ <%=x%></h1>
+</div>
+<%}else{%> <%}%>

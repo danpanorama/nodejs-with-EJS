@@ -1,0 +1,90 @@
+<div class="section">
+  
+
+<div class="widAuto">
+  <h1>login as a seller</h1>
+  <form class="needs-validation" action="/createShop/logasseller"  method="POST" novalidate>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip01">Store name</label>
+        <input type="text" class="form-control" id="createusername" name="store_name" placeholder="Your Store Name"  required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip02">password</label>
+        <input type="password" name="password" class="form-control" id="createuserpassword" placeholder="Password"  required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div> 
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip03">E-mail</label>
+        <input type="email" name="store_email" class="form-control" placeholder="E-mail" id="validationTooltip03" required>
+        <div class="invalid-tooltip">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationTooltip04">View</label>
+        <select class="custom-select" name="store_view"   id="validationTooltip04" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="D">D</option>
+          <option value="L">L</option>
+        </select>
+        <div class="invalid-tooltip">
+          Please select a view .
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationTooltip05">ID</label>
+        <input type="text" name="store_idcart" placeholder="ID" class="form-control" id="createuserPhon" required>
+        <div class="invalid-tooltip">
+          Please provide a valid ID.
+        </div>
+      
+      </div> 
+       <label for="remember">remember me</label>
+       
+    <input type="checkbox" name="remember" id="remember" />
+    </div>
+  
+    <button class="btn btn-primary" type="submit">Submit form</button>
+    <%=err%>
+  </form>
+
+
+</div>
+
+
+
+<!-- 
+  <form action="/createShop/logasseller" class="loginForm" method="POST">
+    <div class="inputFlexRow">
+      <label for="store_name">store name</label>
+      <input type="text" name="store_name" placeholder="store name" />
+      <label for="password">password</label>
+      <input type="password" name="password" placeholder="password" />
+      <label for="store_email">store email</label>
+      <input type="email" name="store_email" placeholder="email" />
+      <label for="store_view">view </label>
+      <select name="store_view" id="">
+        <option value="L">L</option>
+        <option value="D">D</option>
+      </select>
+      <label for="store_idcart">ID </label>
+      <input type="text" name="store_idcart" placeholder="id cart" />
+      <label for="remember">remember me</label>
+      <input type="checkbox" name="remember" id="remember" />
+      <br />
+      <br />
+      <br />
+
+      <button>send</button>
+      <div><%=err%></div>
+    </div>
+  </form> -->
+</div>

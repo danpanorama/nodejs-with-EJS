@@ -1,0 +1,76 @@
+<%let sum = 1%><%if(data.length>0){%> <%for(let item of data ){%> <%let price
+    =item.itemPrice%>
+    
+   
+        <div class="col-sm margbott"> 
+ <form action="/store/edit/<%=item._id%>" class="<%=View == 'L'?'colorWhite':'abc'%> " method="POST">
+    <div class="card <%=View == 'L'?'bacgc':'abc'%>" style="width: 18rem;">
+        <%if(item.file.data){%>
+        <img src="data:image/<%=item.file.contentType%>;base64, 
+        <%=item.file.data.toString('base64')%>" 
+        style="max-height:200px;min-height: 200px;"
+        class="card-img-top  objfit "
+        
+         alt="...">
+        <%}else{%>
+            <div class="card-img-top " style="max-height:200px;min-height: 200px;"><p>no pictur</p></div>
+            <%}%>
+
+        <div class="card-body">
+          <div class="flexrow">
+              <div class="flexcol">
+             <h5 class="card-title"><%=item.itemName%></h5>
+          <p class="card-text"><%=item.itemTopic%></p>
+          
+          <p class="card-text">Price: $<%=price * sum %></p>
+          </div>
+         
+
+          <div class="flexcol">
+            <p class="card-text">sold: <%=item.sold%></p>
+            <p class="card-text">like: <%=item.userLikes.length%></p>
+            <p class="card-text">commends:  <%=item.userUnlike.length%></p>
+          </div>
+          </div>
+        
+          <%if(storecase){%>
+            <p>cenot adit</p>
+            <%}else{%>
+               <p>Quantity:</p>
+              <div class="onerow">
+                 <input
+              type="hidden"
+              name="itemName"
+              value="<%=item.itemName%>"
+            />
+           
+            <input type="number" class="w-50p" value="1" name="sum" />
+            <button class="btn btn-primary">add</button>
+              </div>
+
+            <%}%> </form>
+
+            <%if(clientNumber == item.StoreNumber){%>
+                <h1>your item</h1>
+            
+                <%}else{%>
+                  <!-- <a href="/store/<%=item._id%>"class="btn btn-primary" >baynow</a> -->
+                <p>Quantity:</p>
+                  <form
+                  action="/store/<%=item._id%>"
+                  method="GET" 
+                  class="onerow"
+                >
+               
+                <input type="number" min="1" class="w-50p" value="1" name="sum" />
+
+                  <button class="btn btn-success">bays </button>
+                </form>
+                <%}%>
+        </div>
+      </div>
+</div>
+    <%}%> <%}else{%>
+    <h1 class="red">not found any items</h1>
+    <%}%>
+    

@@ -1,0 +1,134 @@
+<%if(data.length > 0){%> <%-
+include("../components/componentot/totalSell",{data:items}) %> <%let x = 1,y=0%>
+<%for(let item of data ){%>
+
+<div class="flexrowforProfile">
+
+<div class="itemCard <%=View == 'L'?'colorWhite':'abc'%>">
+   <div class="card <%=View == 'L'?'bacgc':'abc'%>">
+    <div class="img ">
+      <%if(item.file.data){%>
+      <img
+        class="pic objfit"
+        src="data:image/<%=item.file.contentType%>;base64, 
+    <%=item.file.data.toString('base64')%>"
+    
+        alt=""
+      />
+      <%}else{%>
+      <h3>no pictur</h3>
+      <%}%>
+    </div>
+    <%if(item.sum>1){%>
+    <p class="posisionAB">X<%=item.sum%></p>
+
+    <%}%> <%if(storePass){%>
+
+    <div class="productName">
+      <p class="paregraph"><b> id:</b><%=item._id%></p>
+    </div>
+    <%}else{%>
+    <div class="productName">
+      <p class="paregraph"><b> id:</b><%=item.ID%></p>
+    </div>
+    <%}%>
+    <div class="storeName">
+      <p><b>store ffname:</b> <%=item.StoreName%></p>
+    </div>
+    <div class="productTopic">
+      <p class="paregraph"><b>product topic:</b> <%=item.itemTopic%></p>
+    </div>
+    <div class="discription">
+      <p class="paregraph">
+        <b>product discription:</b> <%=item.itemDiscription%>
+      </p>
+    </div>
+    <p>price for one : $<%=item.itemPrice%></p>
+    <div class="price marg12">
+      <p><b>$</b><%=item.itemPrice * item.sum%></p>
+    </div>
+    <%if(storePass){%>
+    <div class="infoLikes">
+      <p><b>sold: </b><%=item.sold%></p>
+
+      <p><b>like: </b><%=item.userLikes.length%></p>
+
+      <p><b>unlike: </b><%=item.userUnlike.length%></p>
+    </div>
+
+    <%}%>
+
+    <div class=" marg12">
+      <form action="/store/delete/<%=item._id%>" method="POST">
+        <button class="btn btn-danger">delete</button>
+      </form>
+      <%if(storePass){%>
+      <form
+        
+        action="/store/<%=item._id%>"
+        method="GET"
+      >
+        <button class="btn btn-primary">chake the item</button>
+      </form>
+      <%}%> <%if(storePass){%>
+
+        <div class=" allFormUpdate">
+<p>          update the item
+</p>
+          <form
+            action="/store/update"
+            method="POST"
+            enctype="multipart/form-data"
+            
+          >
+          <div class="fCoulin">
+            <input type="text" readonly name="itemID" value="<%=item._id%>" />
+            name
+            <input type="text" name="itemName" value="<%=item.itemName%>" />
+            discription
+            <input
+              type="text"
+              name="itemDiscription"
+              value="<%=item.itemDiscription%>"
+            /></div><div class="fCoulin">
+            topic
+            
+            <select id="topic" name="itemTopic" value="<%=item.itemTopic%>">
+              <option value="games">games</option>
+              <option value="kitchen">kitchen</option>
+              <option value="kids">kids</option>
+              <option value="music">music</option>
+              <option value="toilet">toilet</option>
+              <option value="sport">sport</option>
+              <option value="gadgets">gadgets</option>
+              <option value="cloths">cloths</option>
+            </select>
+            
+            price
+            <input type="text" name="itemPrice" value="<%=item.itemPrice%>" />
+            image
+            <input type="file" name="file" /> </div>
+            <button class="btn btn-success">update</button>
+         
+          </form>
+          </div>
+
+      <%}else{%>
+
+      <form class="" action="/store/<%=item.ID%>" method="GET">
+        <input type="hidden" value="<%=item.sum%>" name="sum">
+        <button class="btn btn-success">bay now</button>
+      </form>
+      <h1><%=x++%></h1>
+      <%}%>
+    </div> 
+
+    </div>
+
+  </div>
+
+</div>
+
+<%}%> <%}else{%>
+<h1>not found</h1>
+<%}%>

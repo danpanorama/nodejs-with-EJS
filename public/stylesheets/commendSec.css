@@ -1,0 +1,46 @@
+.reesit {
+  width: 70%;
+}
+
+.flexrowTow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.statistic {
+  padding: 1em;
+  background-color: crimson;
+  margin: 1.3em;
+}
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.flexrowbetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commendSection {
+  height: 20vh;
+  overflow: scroll;
+  background-color: #cdcdcd;
+}
+.commend {
+  margin: 0.5em;
+  background-color: #cdcdcd;
+}
+.comm {
+  background-color: #f3f3f3;
+  padding: 0.2em 0.3em;
+  margin: 0.3em 0;
+  color: #161616;
+}
+.price {
+  text-align: center;
+}

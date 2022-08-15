@@ -1,0 +1,42 @@
+<%if(data.length>0) {%>
+
+   
+ 
+  <% for( let i = 0 ;i < data.length ; i++){%>
+      
+        
+    <div  class="itemyoubay">
+      <%if(data[i][0].file.data){%>
+      <img src="data:image/<%=data[i][0].file.contentType%>;base64, 
+      <%=data[i][0].file.data.toString('base64')%>" class="card-img-top card imgshel"style="max-height:200px;" alt="...">
+      <%}%>
+      
+      <div class="card-body bgcolorw">
+
+
+         <p> <%=data[i][0]._id%></p>
+         <%console.log("hahahahahahahyuuuuu",sumArray[i],sumArray)%>
+          
+        <h5 class="card-title"><%=data[i][0].itemName%></h5>
+        <p class="card-text"><%=data[i][0].itemPrice * sumArray[i]%>   <b>X</b> <%=sumArray[i]%></p>
+        <p> Price For One:<%=data[i][0].itemPrice %></p>
+        <p class="card-text"><%=date[i].date%></p>
+        <p class="card-text"><%=date[i].itemDiscription%></p>
+      
+        
+      </div>
+    </div>
+
+
+   
+      <%}%>
+  
+  
+  
+      <%}else{%>
+  
+  
+  <h1>no items</h1>
+  
+  
+          <%}%>

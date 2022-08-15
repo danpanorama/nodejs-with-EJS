@@ -1,0 +1,87 @@
+<% let arr
+=[{title:"HOME",url:"/"},{title:"ABOUT",url:"/about"},{title:"STORE",url:"/store"}]
+%>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%if(loginName){%>
+      <a class="navbar-brand" href="/profile">
+    <%=loginName%>
+    </a>
+    <%}else{%>
+  Navbar
+    <%}%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%=page=='/'?'active':'momo'%> ">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item <%=page=='/about'?'active':'momo'%>">
+          <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item <%=page=='/store'?'active':'momo'%>">
+            <a class="nav-link" href="/store">Store <span class="sr-only">(current)</span></a>
+          </li>
+        <%if(loginName){%>
+            <li class="nav-item <%=page=='/profile'?'active':'momo'%>">
+             <a href="/profile" class="nav-link">profile</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                General
+                </a>
+           
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/bay">item you bay</a>
+                  <a class="dropdown-item" href="/updateUserInfo">updateStore Info  </a>
+                
+                  <div class="dropdown-divider"></div>
+                  <form action="/darklite<%=page%>" class="dropdown-item" method="POST">
+                      <button  class="btn btn-primary">dark/lite</button>
+                    </form>
+                </div>
+              </li>
+            <%}else{%>
+          
+         
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            LoggIn
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/login">login</a>
+            <a class="dropdown-item" href="/createUser">createUser</a>
+            <a class="dropdown-item" href="/createShop">CreateStore</a>
+            <div class="dropdown-divider"></div>
+            <form action="/darklite<%=page%>" class="dropdown-item" method="POST">
+                <button  class="btn btn-primary">dark/lite</button>
+              </form>
+          </div>
+        </li>
+        <%}%>
+        <%if(loginName){%>
+            <form action="/login/logout" method="POST">
+              <button   class="btn btn-danger">log out</button><br />
+            </form>
+            <%}else{%>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">welcom new user</a>
+                  </li>
+            
+            <%}%>
+     
+      </ul>
+     
+      <form class="form-inline my-2 my-lg-0" action="/store" method="GET">
+        <input name="serchQuary" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <%if(loginName){%>
+      
+      <%}%>
+    </div>
+  </nav>

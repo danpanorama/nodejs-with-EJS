@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/navbar.css" />
+    <link rel="stylesheet" href="/stylesheets/store.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/media.css" async defer />
+    <link rel="stylesheet" href="/stylesheets/itemyoubay.css" />
+
+
+    
+    <%-
+    include("components/componentot/navComm")
+    %>
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <div class="sticky">
+<%-
+    include("components/nav",{page:page,loginName:loginName,massage:massage}) %>
+
+    </div>
+    
+    <h1 class="<%=view=='L'?'abc':'colorWhite'%>">itemSelected</h1>
+     <a href="/profile" class="btn btn-info">profile</a> 
+    <div class="gridisng">
+    
+    <%if(storeSalItems != undefined){%>
+    <%-
+    include("components/componentot/storeSalItems",{data:storeSalItems ,date:date,sumArray:sumArray})
+    %>
+    <%}else{%>
+      <h1>no items bay</h1>
+      <%}%>
+ </div>
+    <div class="skipLimit"></div>
+  </body>
+</html>

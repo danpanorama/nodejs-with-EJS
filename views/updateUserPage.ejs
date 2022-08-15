@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+<!-- 
+    <link rel="stylesheet" href="/stylesheets/Allsite.css" />
+    <link rel="stylesheet" href="/stylesheets/media.css" /> -->
+  
+    <%-
+    include("components/componentot/navComm")
+    %>
+  </head>
+  <body class="<%=view=='L'?'lite':'body'%>">
+    <%- include("components/nav",{page:page,loginName:loginName}) %>
+    <div class="reka">
+      <%=err%> 
+      
+      <%-
+      include("components/componentot/userInterface",{userStoreData:userStoreData,userNumber:userNumber,loginName:loginName,userAllData:userAllData})
+      %>
+  
+      <%if(storePass){%>
+      <div class="stickys"> 
+      </div>
+      <%}%> 
+    </div>
+  </body>
+</html>
